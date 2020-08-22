@@ -4,6 +4,10 @@ from OpenGL.GLUT import *
 
 import numpy as np, glm, trimesh, pywavefront, sys
 
+from pywavefront import visualization
+
+import ratcave as rc
+
 
 
 class Camera():
@@ -142,7 +146,7 @@ for vertex in scene.vertices:
 
 scene_size     = [scene_box[1][i]-scene_box[0][i] for i in range(3)]
 max_scene_size = max(scene_size)
-scaled_size    = 5
+scaled_size    = 10
 scene_scale    = [scaled_size/max_scene_size for i in range(3)]
 scene_trans    = [-(scene_box[1][i]+scene_box[0][i])/2 for i in range(3)]
 
@@ -163,6 +167,10 @@ def Model():
         glEnd()
 
     glPopMatrix()
+
+    glMatrixMode(GL_TEXTURE)
+
+    scene.draw()
 
 
 
@@ -193,7 +201,7 @@ class MyWindow:
         glEnable(GL_DEPTH_TEST)
 
         params = {
-            "eye": glm.vec3(0, 0, -5),
+            "eye": glm.vec3(0, 0, -10),
             "target": glm.vec3(0, 0, 0),
             "up": glm.vec3(0, 1,0)
         }
