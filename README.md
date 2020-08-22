@@ -26,7 +26,7 @@ To be able to open a .obj file, its corresponding .mlt file has to be present is
 Usage
 -
 
-To launch the programm, use `python3 moteur.py nameOfTheFile.obj`. (Example : ```python3 moteur.py test_model/Chevrolet_Camaro_SS_Low.obj)
+To launch the programm, use `python3 moteur.py nameOfTheFile.obj`. (Example : ```python3 moteur.py test_model/Chevrolet_Camaro_SS_Low.obj```)
 A window will appear modeling your 3D model.
 You will be able to :
 * scroll down to zoom out from the object
