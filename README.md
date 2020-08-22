@@ -8,18 +8,19 @@ Requirements
 ====
 
 Python3 :
-----
-	*python3 : `sudo apt-get install python3`
+-
+* python3 : ```sudo apt-get install python3```
 
 Librairies : 
-----
-	* glm : `pip3 install glm`
-	* numpy : `pip3 install numpy`
-	* trimesh : `pip3 install trimesh`
-	* pywavefront : `pip3 install --upgrade --user pyglet` and then `pip3 install PyWavefront`
+-
+* glm : ```pip3 install glm```
+* numpy : ```pip3 install numpy```
+* trimesh : ```pip3 install trimesh```
+* pywavefront : ```pip3 install --upgrade --user pyglet && pip3 install PyWavefront```
+* or : ```pip3 install -r requirement.txt``` 
 
 Files : 
----
+-
 	* nameOfTheFile.obj
 	* nameOfTheFile.mtl
 
