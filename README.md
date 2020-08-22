@@ -30,8 +30,8 @@ Usage
 To launch the programm, use `python3 moteur.py nameOfTheFile.obj`.
 A window will appear modeling your 3D model.
 You will be able to :
-	* scroll down to pull away from the object
-	* scroll up to get closer to the object
-	* turn around the object using your left mouse click
+* scroll down to pull away from the object
+* scroll up to get closer to the object
+* turn around the object using your left mouse click
 
  
