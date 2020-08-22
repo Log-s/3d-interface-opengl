@@ -27,7 +27,7 @@ Files :
 Usage
 ====
 
-To launch the programm, use `python3 moteur.py nameOfTheFile.obj`.
+To launch the programm, use `python3 moteur.py nameOfTheFile.obj`. (Example : ```python3 moteur.py test_model/Chevrolet_Camaro_SS_Low.obj)
 A window will appear modeling your 3D model.
 You will be able to :
 	* scroll down to pull away from the object
