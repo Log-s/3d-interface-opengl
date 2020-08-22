@@ -2,15 +2,14 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-import glm
+import numpy as np, glm, trimesh, pywavefront, sys
 
-import numpy as np
-import trimesh
-import pywavefront
-import sys
 
 
 class Camera():
+    """
+    Handles the camera object : zooms, position updates, etc
+    """
 
     def __init__(
         self,
@@ -55,7 +54,11 @@ class Camera():
         gluLookAt(e.x, e.y, e.z, t.x, t.y, t.z, u.x, u.y, u.z)
 
 
+
 class CameraMovement(Camera): # from Rabbid76
+    """
+    Handles the camera movements (rotations)
+    """
 
     def rotate_around_target(self, target, delta):
 
@@ -93,21 +96,12 @@ class CameraMovement(Camera): # from Rabbid76
     def rotate_target(self, delta):
         return self.rotate_around_target(self.eye, delta)
 
-    def move_right(self):
-        self.eye = glm.vec3(self.eye[0]+0.1, self.eye[1], self.eye[2])
-        self.target = glm.vec3(self.target[0]+0.1, self.target[1], self.target[2])
 
-    def move_left(self):
-        self.eye = glm.vec3(self.eye[0]-0.1, self.eye[1], self.eye[2])
-        self.target = glm.vec3(self.target[0]-0.1, self.target[1], self.target[2])
-
-    def move_forward(self):
-        self.target = glm.vec3(self.target[0]-0.1, self.target[1], self.target[2])
-
-    def move_back(self):
-        self.target = glm.vec3(self.target[0]-0.1, self.target[1], self.target[2])
 
 class GlutController():
+    """
+    Handles mouse controls for camera movements
+    """
 
     def __init__(self, camera, velocity=100, velocity_wheel=100):
         self.velocity = velocity
@@ -136,6 +130,8 @@ class GlutController():
 
 
 
+# Opening .obj file, and extracting constructions triangles
+
 scene = pywavefront.Wavefront(sys.argv[1], collect_faces=True)
 
 scene_box = (scene.vertices[0], scene.vertices[0])
@@ -151,6 +147,9 @@ scene_scale    = [scaled_size/max_scene_size for i in range(3)]
 scene_trans    = [-(scene_box[1][i]+scene_box[0][i])/2 for i in range(3)]
 
 def Model():
+    """
+    Constructs the model to display by the graphical engine
+    """
 
     glPushMatrix()
     glScalef(*scene_scale)
@@ -168,6 +167,9 @@ def Model():
 
 
 class MyWindow:
+    """
+    Creates a window for the model to be displayed
+    """
 
     def __init__(self, w, h):
         self.width = w
@@ -176,7 +178,7 @@ class MyWindow:
         glutInit()
         glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH)
         glutInitWindowSize(w, h)
-        glutCreateWindow('OpenGL Window')
+        glutCreateWindow(sys.argv[1].split("/")[-1].replace(".obj", ""))
 
         self.startup()
 
@@ -184,7 +186,6 @@ class MyWindow:
         glutDisplayFunc(self.display)
         glutMouseFunc(self.controller.glut_mouse)
         glutMotionFunc(self.controller.glut_motion)
-        glutKeyboardFunc(self.keyboard_func)
         glutIdleFunc(self.idle_func)
 
 
@@ -211,27 +212,12 @@ class MyWindow:
         self.width = w
         self.height = h
 
-    def keyboard_func(self, *args):
-        try:
-            key = args[0].decode("utf-8")
-
-            if key == "z":
-                pass
-            elif key == "q":
-                self.camera.move_left()
-            elif key == "s":
-                pass
-            elif key == "d":
-                self.camera.move_right()
-
-        except:
-            pass
-
-
     def display(self):
+        """
+        Handles the display of the model in a Window
+        """
         self.camera.update(self.width / self.height)
 
-        #glClearColor(0.2, 0.3, 0.3, 1.0)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
         self.camera.load_projection()
