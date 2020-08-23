@@ -2,6 +2,8 @@ Why this project ?
 -
 I did this project for an IT intership interview for the **Winnove Medical** company.
 
+Video demo is available [here](https://www.youtube.com/watch?v=Tgq_bRQUjx0&feature=youtu.be). The video demonstrates this project and the [bluetooth-demo](https://github.com/Log-s/bluetooth-demo).
+
 A bit of explanation :
 -
 As you can see on these pictures, the graphical engine is able to handle colors. However, for performance purposes, this function
