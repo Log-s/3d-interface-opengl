@@ -1,17 +1,26 @@
 Why this project ?
 -
+I did this project for an IT intership interview for the **Winnove Medical** company.
 
-I did this project for an IT intership interview for the **Winnove Medical** company
+A bit of explanation :
+-
+As you can see on these pictures, the graphical engine is able to handle colors. However, for performance purposes, this function
+has been disabled. In addition to that, the models goals is to be 3d printed, so in the end, it will be made of a unique color.
+
+
+<img src="ressources/Chat.png" alt="CAT_3D" width="300px"/>
+<img src="ressources/car.png" alt="CAR_3D" width="572px"/>
+<img src="ressources/Parrot.png" alt="PARROT_3D" width="364px"/>
 
 
 Requirements
 -
-
 ### Python3 :
 * python3 : ```sudo apt-get install python3```
 
 ### Librairies : 
-* glm : ```pip3 install glm```
+* PyOpenGL : ```pip3 install PyOpenGL PyOpenGL_accelerate```
+* PyGLM : ```pip3 install PyGLM```
 * numpy : ```pip3 install numpy```
 * trimesh : ```pip3 install trimesh```
 * pywavefront : ```pip3 install --upgrade --user pyglet && pip3 install PyWavefront```
@@ -25,7 +34,6 @@ To be able to open a .obj file, its corresponding .mlt file has to be present is
 
 Usage
 -
-
 To launch the programm, use `python3 moteur.py nameOfTheFile.obj`. (Example : ```python3 moteur.py test_model/Chevrolet_Camaro_SS_Low.obj```)
 A window will appear modeling your 3D model.
 You will be able to :

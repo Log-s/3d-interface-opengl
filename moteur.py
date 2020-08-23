@@ -156,22 +156,17 @@ def Model():
     glPushMatrix()
     glScalef(*scene_scale)
     glTranslatef(*scene_trans)
-##
-    #for mesh in scene.mesh_list:
-    #    glBegin(GL_TRIANGLES)
-    #    for face in mesh.faces:
-    #        for vertex_i in face:
-    #            glVertex3f(*scene.vertices[vertex_i])
-    #    glEnd()
-#
+
+    for mesh in scene.mesh_list:
+        glBegin(GL_TRIANGLES)
+        for face in mesh.faces:
+            for vertex_i in face:
+                glVertex3f(*scene.vertices[vertex_i])
+        glEnd()
+
     glPopMatrix()
-#
+
     glMatrixMode(GL_MODELVIEW)
-#
-    visualization.draw(scene)
-
-
-
 
 
 
