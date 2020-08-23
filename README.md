@@ -8,7 +8,7 @@ As you can see on these pictures, the graphical engine is able to handle colors.
 has been disabled. In addition to that, the models goals is to be 3d printed, so in the end, it will be made of a unique color.
 
 
-<img src="ressources/Chat.png" alt="CAT_3D" height="260px"/><img src="ressources/car.png" alt="CAR_3D" height="260px"/><img src="ressources/Parrot.png" alt="PARROT_3D" height="260px"/>
+<img src="ressources/Chat.png" alt="CAT_3D" height="260px"/> <img src="ressources/car.png" alt="CAR_3D" height="260px"/> <img src="ressources/Parrot.png" alt="PARROT_3D" height="260px"/>
 
 
 Requirements
