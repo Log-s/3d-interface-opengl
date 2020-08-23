@@ -6,8 +6,6 @@ import numpy as np, glm, trimesh, pywavefront, sys
 
 from pywavefront import visualization
 
-import ratcave as rc
-
 
 
 class Camera():
@@ -158,19 +156,22 @@ def Model():
     glPushMatrix()
     glScalef(*scene_scale)
     glTranslatef(*scene_trans)
-
-    for mesh in scene.mesh_list:
-        glBegin(GL_TRIANGLES)
-        for face in mesh.faces:
-            for vertex_i in face:
-                glVertex3f(*scene.vertices[vertex_i])
-        glEnd()
-
+##
+    #for mesh in scene.mesh_list:
+    #    glBegin(GL_TRIANGLES)
+    #    for face in mesh.faces:
+    #        for vertex_i in face:
+    #            glVertex3f(*scene.vertices[vertex_i])
+    #    glEnd()
+#
     glPopMatrix()
+#
+    glMatrixMode(GL_MODELVIEW)
+#
+    visualization.draw(scene)
 
-    glMatrixMode(GL_TEXTURE)
 
-    scene.draw()
+
 
 
 
@@ -201,7 +202,7 @@ class MyWindow:
         glEnable(GL_DEPTH_TEST)
 
         params = {
-            "eye": glm.vec3(0, 0, -10),
+            "eye": glm.vec3(0, 10, 10),
             "target": glm.vec3(0, 0, 0),
             "up": glm.vec3(0, 1,0)
         }
