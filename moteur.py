@@ -2,11 +2,7 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-import numpy as np, glm, trimesh, pywavefront, sys
-
-from pywavefront import visualization
-
-
+import glm, pywavefront, sys
 
 class Camera():
     """
